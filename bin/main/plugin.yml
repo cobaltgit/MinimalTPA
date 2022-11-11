@@ -1,0 +1,41 @@
+name: MinimalTPA
+version: '${version}'
+main: net.cobaltonline.minimaltpa.MinimalTPA
+api-version: 1.19
+authors: [ cobaltgit ]
+description: An extremely minimal TPA plugin for Minecraft
+website: https://github.com/cobaltgit/MinimalTPA
+commands:
+  tpa:
+    description: Send a teleport request to another player
+    usage: "Usage: /tpa <player>"
+    permission: minimaltpa.tpa
+  tpaccept:
+    description: Accept an incoming teleport request
+    usage: /tpaccept
+    permission: minimaltpa.tpaccept
+  tpdeny:
+    Description: Deny an incoming teleport request
+    Usage: /tpdeny
+    permission: minimaltpa.tpdeny
+  tpcancel:
+    description: Cancel an outgoing teleport request
+    usage: /tpcancel
+    permission: minimaltpa.tpcancel
+
+permissions:
+  minimaltpa.tpa:
+    description: Send TPA requests
+    default: true
+  minimaltpa.tpaccept:
+    description: Accept an incoming TPA request
+    default: true
+  minimaltpa.tpdeny:
+    description: Deny an incoming TPA request
+    default: true
+  minimaltpa.tpcancel:
+    description: Cancel your current TPA request
+    default: true
+  minimaltpa.bypasscooldown:
+    description: Bypass the TPA request cooldown
+    default: false
