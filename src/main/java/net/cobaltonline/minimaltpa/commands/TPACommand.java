@@ -31,7 +31,7 @@ public final class TPACommand implements CommandExecutor {
         if (this.plugin.cooldowns.containsKey(player.getUniqueId()) && !player.hasPermission("minimaltpa.bypasscooldown")) {
             long diff = (System.currentTimeMillis() - this.plugin.cooldowns.get(player.getUniqueId())) / 1000;
             if (diff < cooldown) {
-                player.sendMessage(String.format("Please wait §n%d seconds§r before sending another TPA request!", cooldown));
+                player.sendMessage(String.format("Please wait %d seconds before sending another TPA request!", cooldown));
                 return true;
             }
         }
