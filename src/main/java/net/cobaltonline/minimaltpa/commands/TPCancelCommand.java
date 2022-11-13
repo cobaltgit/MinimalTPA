@@ -28,9 +28,10 @@ public final class TPCancelCommand implements CommandExecutor {
             return true;
         }
 
-        Player target = Bukkit.getPlayer(this.plugin.requests.get(player.getUniqueId()));
+        Player target = Bukkit.getPlayer(this.plugin.requests.remove(player.getUniqueId()));
 
-        this.plugin.requests.remove(player.getUniqueId());
+        int timeoutTaskId = this.plugin.timeouts.remove(player.getUniqueId());
+        Bukkit.getScheduler().cancelTask(timeoutTaskId);
         player.sendMessage(String.format("Cancelled TPA request to %s!", target.getName()));
         target.sendMessage(String.format("%s has cancelled their TPA request to you!", player.getName()));
         return true;
