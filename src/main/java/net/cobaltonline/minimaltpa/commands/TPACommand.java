@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public final class TPACommand implements CommandExecutor {
-
     private MinimalTPA plugin;
     public TPACommand(MinimalTPA plugin) {
         this.plugin = plugin;
@@ -28,8 +27,8 @@ public final class TPACommand implements CommandExecutor {
         long keepAlive = this.plugin.getConfig().getInt("keep-alive") * 20;
 
         int cooldown = this.plugin.getConfig().getInt("cooldown");
-        if (this.plugin.cooldowns.containsKey(player.getUniqueId()) && !player.hasPermission("minimaltpa.bypasscooldown")) {
-            long diff = (System.currentTimeMillis() - this.plugin.cooldowns.get(player.getUniqueId())) / 1000;
+        if (this.plugin.tpaCooldowns.containsKey(player.getUniqueId()) && !player.hasPermission("minimaltpa.bypasscooldown")) {
+            long diff = (System.currentTimeMillis() - this.plugin.tpaCooldowns.get(player.getUniqueId())) / 1000;
             if (diff < cooldown) {
                 player.sendMessage(String.format("Please wait %d seconds before sending another TPA request!", cooldown));
                 return true;
@@ -63,7 +62,7 @@ public final class TPACommand implements CommandExecutor {
             }
         }, keepAlive);
 
-        this.plugin.cooldowns.put(player.getUniqueId(), System.currentTimeMillis());
+        this.plugin.tpaCooldowns.put(player.getUniqueId(), System.currentTimeMillis());
 
         return true;
     }
@@ -72,6 +71,6 @@ public final class TPACommand implements CommandExecutor {
         player.sendMessage(String.format("Your TPA request to %s timed out!", target.getName()));
         target.sendMessage(String.format("TPA request from %s timed out!", player.getName()));
         this.plugin.requests.remove(player.getUniqueId());
-        this.plugin.cooldowns.remove(player.getUniqueId());
+        this.plugin.tpaCooldowns.remove(player.getUniqueId());
     }
 }
