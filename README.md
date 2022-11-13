@@ -6,7 +6,7 @@ A lightweight TPA plugin for SpigotMC and Paper servers
 
 ### Commands
 
-* `/tpa <player>` - send a teleport request to `player`
+* `/tpa|tpask <player>` - send a teleport request to `player`
 * `/tpaccept` - accept your current incoming teleport request
 * `/tpdeny` - deny your current incoming teleport request
 * `/tpcancel` - cancel your current outgoing teleport request
