@@ -56,12 +56,13 @@ public final class TPACommand implements CommandExecutor {
         player.sendMessage(String.format("Sent a TPA request to %s.\nIf you wish to cancel, type /tpcancel", args[0], args[0]));
         target.sendMessage(String.format("You have received a TPA request from %s.\nTo allow them to teleport you, type /tpaccept in the console.\n If not, then type /tpdeny", args[0]));
 
-        this.plugin.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable() {
+        int timeoutTaskId = this.plugin.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable() {
             public void run() {
                 onTimeout(player, target);
             }
         }, keepAlive);
-
+        
+        this.plugin.timeouts.put(player.getUniqueId(), timeoutTaskId);
         this.plugin.tpaCooldowns.put(player.getUniqueId(), System.currentTimeMillis());
 
         return true;

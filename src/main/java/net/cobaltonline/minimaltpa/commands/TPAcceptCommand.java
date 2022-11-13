@@ -41,6 +41,8 @@ public final class TPAcceptCommand implements CommandExecutor {
         
         this.plugin.backLocations.put(tpaSender.getUniqueId(), tpaSender.getLocation());
         tpaSender.teleport(player.getLocation());
+        int timeoutTaskId = this.plugin.timeouts.remove(player.getUniqueId());
+        Bukkit.getScheduler().cancelTask(timeoutTaskId);
         tpaSender.sendMessage(String.format("Teleported to %s!", player.getName()));
         player.sendMessage(String.format("%s has teleported to you!", tpaSender.getName()));
         return true;

@@ -24,6 +24,7 @@ public final class MinimalTPA extends JavaPlugin {
     public HashMap<UUID, Location> backLocations = new HashMap<UUID, Location>();
     public HashMap<UUID, Long> backCooldowns = new HashMap<UUID, Long>();
     public HashMap<UUID, Long> tpaCooldowns = new HashMap<UUID, Long>();
+    public HashMap<UUID, Integer> timeouts = new HashMap<UUID, Integer>();
 
     @Override
     public void onEnable() {
@@ -44,5 +45,6 @@ public final class MinimalTPA extends JavaPlugin {
         this.tpaCooldowns.clear();
         this.backCooldowns.clear();
         this.backLocations.clear();
+        this.timeouts.clear();
     }
 }
