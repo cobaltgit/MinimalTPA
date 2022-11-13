@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 public final class TPAcceptCommand implements CommandExecutor {
-
     private MinimalTPA plugin;
     public TPAcceptCommand(MinimalTPA plugin) {
         this.plugin = plugin;
@@ -29,6 +28,7 @@ public final class TPAcceptCommand implements CommandExecutor {
             return true;
         }
 
+
         Player tpaSender = null;
 
         for (UUID u : this.plugin.requests.keySet()) {
@@ -38,7 +38,8 @@ public final class TPAcceptCommand implements CommandExecutor {
                 break;
             }
         }
-
+        
+        this.plugin.backLocations.put(tpaSender.getUniqueId(), tpaSender.getLocation());
         tpaSender.teleport(player.getLocation());
         tpaSender.sendMessage(String.format("Teleported to %s!", player.getName()));
         player.sendMessage(String.format("%s has teleported to you!", tpaSender.getName()));
