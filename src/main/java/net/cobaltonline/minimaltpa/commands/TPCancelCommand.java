@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public final class TPCancelCommand implements CommandExecutor {
-
     private MinimalTPA plugin;
     public TPCancelCommand(MinimalTPA plugin) {
         this.plugin = plugin;
