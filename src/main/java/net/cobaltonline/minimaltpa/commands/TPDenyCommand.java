@@ -40,6 +40,8 @@ public final class TPDenyCommand implements CommandExecutor {
             }
         }
 
+        int timeoutTaskId = this.plugin.timeouts.remove(player.getUniqueId());
+        Bukkit.getScheduler().cancelTask(timeoutTaskId);
         tpaSender.sendMessage(String.format("%s has denied your TPA request!", player.getName()));
         player.sendMessage(String.format("You have denied TPA request from %s!", tpaSender.getName()));
         return true;
