@@ -29,4 +29,5 @@ A lightweight TPA plugin for SpigotMC and Paper servers
 ### Configuration Options
 
 * `keep-alive` - how long to keep a TPA request alive for until it times out
-* `cooldown` - how long players must wait between sending TPA requests
+* `cooldown.tpa` - how long players must wait between sending TPA requests
+* `cooldown.back` - how long players must wait between using `/back`
