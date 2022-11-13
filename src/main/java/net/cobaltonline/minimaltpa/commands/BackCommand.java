@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import net.cobaltonline.minimaltpa.MinimalTPA;
 
-public class BackCommand implements CommandExecutor {
+public final class BackCommand implements CommandExecutor {
     private MinimalTPA plugin;
     public BackCommand(MinimalTPA plugin) {
         this.plugin = plugin;

@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.cobaltonline.minimaltpa.MinimalTPA;
 
-public class PlayerListener implements Listener {
+public final class PlayerListener implements Listener {
     private MinimalTPA plugin;
     public PlayerListener(MinimalTPA plugin) {
         this.plugin = plugin;
