@@ -56,7 +56,7 @@ public final class TPACommand implements CommandExecutor {
 
         this.plugin.requests.put(player.getUniqueId(), target.getUniqueId());
         player.sendMessage(String.format("Sent a TPA request to %s.\nIf you wish to cancel, type /tpcancel", args[0], args[0]));
-        target.sendMessage(String.format("You have received a TPA request from %s.\nTo allow them to teleport you, type /tpaccept in the console.\n If not, then type /tpdeny", args[0]));
+        target.sendMessage(String.format("You have received a TPA request from %s.\nTo allow them to teleport you, type /tpaccept in the console.\n If not, then type /tpdeny", player.getName()));
 
         int timeoutTaskId = this.plugin.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable() {
             public void run() {
