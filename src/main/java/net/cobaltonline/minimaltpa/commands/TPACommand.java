@@ -16,13 +16,15 @@ public final class TPACommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player player)) {
+        if (!(sender instanceof Player)) {
             sender.sendMessage("This command cannot be used from the console.");
             return true;
         } else if (args.length == 0) {
             sender.sendMessage("You must specify a player!");
             return false;
         }
+
+        Player player = (Player) sender;
 
         long keepAlive = this.plugin.getConfig().getInt("keep-alive") * 20;
 

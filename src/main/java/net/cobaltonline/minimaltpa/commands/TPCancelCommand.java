@@ -16,10 +16,12 @@ public final class TPCancelCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player player)) {
+        if (!(sender instanceof Player)) {
             sender.sendMessage("This command cannot be used from the console.");
             return true;
         }
+
+        Player player = (Player) sender;
 
         if (!this.plugin.requests.containsKey(player.getUniqueId())) {
             player.sendMessage("You have no outgoing TPA requests!");

@@ -18,10 +18,12 @@ public final class TPAcceptCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player player)) {
+        if (!(sender instanceof Player)) {
             sender.sendMessage("This command cannot be used from the console.");
             return true;
         }
+
+        Player player = (Player) sender;
 
         if (!this.plugin.requests.containsValue(player.getUniqueId())) {
             sender.sendMessage("You have no incoming TPA requests!");
