@@ -1,2 +1,3 @@
 keep-alive: 30
-cooldown: 5
+tpa-cooldown: 5
+back-cooldown: 5
