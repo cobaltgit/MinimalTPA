@@ -26,7 +26,7 @@ public final class TPACommand implements CommandExecutor {
 
         long keepAlive = this.plugin.getConfig().getInt("keep-alive") * 20;
 
-        int cooldown = this.plugin.getConfig().getInt("tpa-cooldown");
+        int cooldown = this.plugin.getConfig().getInt("cooldown.tpa");
         if (this.plugin.tpaCooldowns.containsKey(player.getUniqueId()) && !player.hasPermission("minimaltpa.bypasscooldown")) {
             long diff = (System.currentTimeMillis() - this.plugin.tpaCooldowns.get(player.getUniqueId())) / 1000;
             if (diff < cooldown) {

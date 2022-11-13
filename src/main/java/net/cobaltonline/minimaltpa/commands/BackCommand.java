@@ -26,7 +26,7 @@ public final class BackCommand implements CommandExecutor {
             return true;
         }
 
-        int cooldown = this.plugin.getConfig().getInt("back-cooldown");
+        int cooldown = this.plugin.getConfig().getInt("cooldown.back");
         if (this.plugin.backCooldowns.containsKey(player.getUniqueId()) && !player.hasPermission("minimaltpa.bypasscooldown")) {
             long diff = (System.currentTimeMillis() - this.plugin.backCooldowns.get(player.getUniqueId())) / 1000;
             if (diff < cooldown) {
