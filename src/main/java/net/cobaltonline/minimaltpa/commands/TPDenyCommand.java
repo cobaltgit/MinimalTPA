@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 public final class TPDenyCommand implements CommandExecutor {
-
     private MinimalTPA plugin;
     public TPDenyCommand(MinimalTPA plugin) {
         this.plugin = plugin;
