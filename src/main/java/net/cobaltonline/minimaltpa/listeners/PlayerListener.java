@@ -1,5 +1,6 @@
 package net.cobaltonline.minimaltpa.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,6 +24,8 @@ public final class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
         Player player = event.getPlayer();
+        int timeoutTaskId = this.plugin.timeouts.get(player.getUniqueId());
+        Bukkit.getScheduler().cancelTask(timeoutTaskId);
         this.plugin.requests.remove(player.getUniqueId());
         this.plugin.backLocations.remove(player.getUniqueId());
     }
