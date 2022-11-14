@@ -24,7 +24,7 @@ public final class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-        int timeoutTaskId = this.plugin.timeouts.get(player.getUniqueId());
+        int timeoutTaskId = this.plugin.timeouts.remove(player.getUniqueId());
         Bukkit.getScheduler().cancelTask(timeoutTaskId);
         this.plugin.requests.remove(player.getUniqueId());
         this.plugin.backLocations.remove(player.getUniqueId());
