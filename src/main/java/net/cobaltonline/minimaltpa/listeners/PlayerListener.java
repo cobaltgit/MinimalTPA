@@ -17,8 +17,10 @@ public final class PlayerListener implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-        Player player = event.getEntity();
-        this.plugin.backLocations.put(player.getUniqueId(), player.getLocation());
+        if (this.plugin.getConfig().getBoolean("allow-back-on-death")) {
+            Player player = event.getEntity();
+            this.plugin.backLocations.put(player.getUniqueId(), player.getLocation());
+        }
     }
 
     @EventHandler

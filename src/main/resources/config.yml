@@ -2,3 +2,4 @@ keep-alive: 30
 cooldown:
   tpa: 5
   back: 5
+allow-back-on-death: true
